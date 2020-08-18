@@ -10,6 +10,7 @@ class Calculus extends Component {
     this.setState({
       amountMoney: '',
     })
+
   }
 
   render() {
@@ -32,12 +33,12 @@ class Calculus extends Component {
           <div className="calc__amount-month">
             <h4 className="calc__amount-text">Reach goal by</h4>
             <div className="calc__amount-boxes">
-              <span className="calc__amount-left">$</span>
+              <span className="calc__amount-left"></span>
               <NumberFormat
                 className="calc__amount-time"
                 thousandSeparator={true}
               />
-              <span className="calc__amount-right">$</span>
+              <span className="calc__amount-right"></span>
             </div>
           </div>
         </div>

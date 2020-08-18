@@ -17,10 +17,14 @@ body {
 .navbar {
   height: 6em;
   background:#fff;
+  background-image: url('./icons/logo.svg');
+  background-repeat: no-repeat;
+  background-position: left;
+  background-position-y: center;
+  background-position-x: 40px;
 }
 
 /* Calculus */
-
 
 .calc__amount {
   display: flex;
@@ -57,9 +61,10 @@ body {
   background: #F4F8FA;
   border: 1px solid #E1E8ED;
   border-radius: 4px 0px 0px 4px;
-  padding: 16px;
   width: 48px;
-
+  background-image: url('./icons/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .calc__amount-right {
@@ -68,9 +73,11 @@ body {
   background: #F4F8FA;
   border: 1px solid #E1E8ED;
   border-radius: 0 4px 4px 0;
-  padding: 16px;
   width: 48px;
-
+  background-image: url('./icons/arrow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scaleX(-1);
 }
 
 .calc__amount-money {
@@ -145,12 +152,10 @@ body {
 }
 
 .logo {
-  border: 1px solid #E1E8ED;
   width: 40px;
   height: 40px;
   margin-bottom: 8px;
-
-
+  background-image: url('./icons/insuranceAuto.svg');
 }
 
 .container__box-logo h1 {
