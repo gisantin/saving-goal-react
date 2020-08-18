@@ -1,50 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import NumberFormat from 'react-number-format';
 
-class Calculus extends Component {
-  state = {
-    amountMoney: 1000,
-  }
+import Months from './Months'
 
-  cleanIputHandler = () => {
-    this.setState({
-      amountMoney: '',
-    })
+const Calculus = (props) => {
+  const [amountMoney, setAmountMoney] = useState(1000);
 
-  }
+  const cleanIputHandler = () => setAmountMoney('');
 
-  render() {
-    return (
-      <div className="calc">
-        <div className="calc__amount">
-          <div className="calc__amount-money">
-            <h4 className="calc__amount-text">"Total amount"</h4>
-            <div className="calc__amount-boxes">
-              <button className="calc__amount-currency"
-                onClick={this.cleanIputHandler}>$</button>
-              <NumberFormat
-                className="calc__amount-dolar"
-                value={this.state.amountMoney}
-                thousandSeparator={true}
-                displayType={'number'}
-              />
-            </div>
-          </div>
-          <div className="calc__amount-month">
-            <h4 className="calc__amount-text">Reach goal by</h4>
-            <div className="calc__amount-boxes">
-              <span className="calc__amount-left"></span>
-              <NumberFormat
-                className="calc__amount-time"
-                thousandSeparator={true}
-              />
-              <span className="calc__amount-right"></span>
-            </div>
+  return (
+    <div className="calc">
+      <div className="calc__amount">
+        <div className="calc__amount-money">
+          <h4 className="calc__amount-text">"Total amount"</h4>
+          <div className="calc__amount-boxes">
+            <button className="calc__amount-currency"
+              onClick={cleanIputHandler}>$</button>
+            <NumberFormat
+              className="calc__amount-dolar"
+              value={amountMoney}
+              thousandSeparator={true}
+              displayType={'number'}
+            />
           </div>
         </div>
-      </div>
-    )
-  }
+        <Months {...props} />
+    </div>
+  </div>
+  )
 }
 
 export default Calculus;

@@ -227,3 +227,9 @@ body {
   padding: 16px;
   border: none;
 }
+
+.calc__amount-input {
+  border: 1px solid #E1E8ED;
+  width: 130px;
+  height: 60px;
+}
