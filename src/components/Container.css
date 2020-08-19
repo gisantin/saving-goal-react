@@ -34,6 +34,7 @@
   padding: 49px 15px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 74px;
 }
 
 @media screen and (min-width: 1024px) {
