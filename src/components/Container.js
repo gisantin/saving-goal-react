@@ -1,95 +1,48 @@
 import React, { useState } from "react";
 import Calculus from "./Calculus";
 import Display from "./Display";
-import Months, { MONTHS } from "./Months";
+import Months from "./Months";
+import { MONTHS } from "../utils/constants";
+import addMonthsFromCurrentDate from '../utils/addMonthsFromCurrentDate';
+import formatCurrency from "../utils/formatCurrency";
+
 
 import { ReactComponent as House } from "../icons/insuranceAuto.svg";
 
-import './Container.css';
-
+import "./Container.css";
 
 const Container = () => {
-  const initialAmountMoney = 1000;
+  const initialAmountMoney = 0;
 
-  const initialMonthIndex = new Date().getMonth();
-  const initialYear = new Date().getFullYear();
-  const [formattedAmountMoney, setFormattedAmountMoney] = useState(
-    initialAmountMoney
-  );
   const [amountMoney, setAmountMoney] = useState(initialAmountMoney);
-  const [monthlyAmount, setMonthlyAmount] = useState(`$${initialAmountMoney}`);
-  const [currentMonth, setCurrentMonth] = useState(initialMonthIndex);
-  const [months, setMonths] = useState(1);
-  const [currentYear, setCurrentYear] = useState(initialYear);
-  const [isDisabled, setIsDisabled] = useState(true);
+  const [monthsCounter, setMonthsCounter] = useState(1);
+
+  const incrementedDate = addMonthsFromCurrentDate(monthsCounter - 1);
+  const incrementedMonth = MONTHS[incrementedDate.getMonth()];
+  const incrementedYear = incrementedDate.getFullYear();
 
   const onCalculusChange = ({ target: { value } }) => {
-    const intValue = parseInt(value.replace(/[\D]/g, ""));
-
-    const formattedValue = intValue.toLocaleString("en-US", {
-      style: "decimal",
-    });
-
-    setFormattedAmountMoney(formattedValue);
-    setAmountMoney(intValue);
-    calculateAmount(months);
+    // const intValue = parseInt(value.replace(/[\D]/g, ""));
+    setAmountMoney(value);
   };
 
-  const incrementDate = () => {
-    let nextMonth = currentMonth + 1;
-
-    if (nextMonth > 11) {
-      nextMonth = 0;
-      setCurrentYear(currentYear + 1);
-    }
-    setCurrentMonth(nextMonth);
-
-    if (isDisabled) {
-      setIsDisabled(false);
-    }
-
-    const updatedMonths = months + 1;
-
-    setMonths(updatedMonths);
-    calculateAmount(updatedMonths);
+  const incrementMonth = () => {
+    const monthCounterIncremented = monthsCounter + 1;
+    setMonthsCounter(monthCounterIncremented);
   };
 
-  const calculateAmount = (months) => {
-    const monthlyAmount = (amountMoney / months).toLocaleString("en-US", {
-      style: "decimal",
-      currency: "USD",
-    });
-    setMonthlyAmount(monthlyAmount);
-  };
-
-  const handleDisable = (prevMonth) => {
-    if (prevMonth > initialMonthIndex && currentYear === initialYear) {
-      setIsDisabled(false);
-    }
-
-    if (prevMonth === initialMonthIndex && currentYear === initialYear) {
-      setIsDisabled(true);
+  const decrementMonth = () => {
+    if (monthsCounter > 1) {
+      const monthCounterDecremented = monthsCounter - 1;
+      setMonthsCounter(monthCounterDecremented);
     }
   };
 
-  const decrementDate = () => {
-    let prevMonth = currentMonth - 1;
-    if (isDisabled) return;
-
-    handleDisable(prevMonth);
-
-    if (prevMonth < 0) {
-      prevMonth = 11;
-      setCurrentYear(currentYear - 1);
-    }
-
-    setCurrentMonth(prevMonth);
-
-    const updatedMonths = months - 1;
-
-    setMonths(updatedMonths);
-    calculateAmount(updatedMonths);
+  const calculateMonthlyAmount = (amount, months) => {
+    return amount / months;
   };
+
+  let isDecrementDisabled = monthsCounter <= 1;
 
   return (
     <div className="container">
@@ -103,26 +56,25 @@ const Container = () => {
           <p>Saving goal</p>
         </div>
         <div className="container__fields">
-          <Calculus
-            formattedAmountMoney={formattedAmountMoney}
-            onCalculusChange={onCalculusChange}
-          />
+          <Calculus onCalculusChange={onCalculusChange} />
           <Months
-            currentMonth={currentMonth}
-            currentYear={currentYear}
-            isDisabled={isDisabled}
-            incrementDate={incrementDate}
-            decrementDate={decrementDate}
+            isDecrementDisabled={isDecrementDisabled}
+            incrementMonth={incrementMonth}
+            decrementMonth={decrementMonth}
+            monthsCounter={monthsCounter}
+            incrementedMonth={incrementedMonth}
+            incrementedYear={incrementedYear}
           />
         </div>
         <Display
-          monthlyAmount={monthlyAmount}
-          months={months}
-          formattedAmountMoney={formattedAmountMoney}
-          finalDate={`${MONTHS[currentMonth]} ${currentYear}`}
+          monthlyAmount={calculateMonthlyAmount(amountMoney, monthsCounter)}
+          months={monthsCounter}
+          finalDate={`${incrementedMonth} ${incrementedYear}`}
         />
         <div className="container__button">
-          <button disabled className="button">Confirm</button>
+          <button disabled className="button">
+            Confirm
+          </button>
         </div>
       </div>
     </div>

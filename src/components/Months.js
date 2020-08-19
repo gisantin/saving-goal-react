@@ -3,28 +3,13 @@ import React from "react";
 import { ReactComponent as Arrow } from "../icons/arrow.svg";
 import "./Months.css";
 
-export const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 const Months = (props) => {
   const {
-    currentMonth,
-    currentYear,
-    isDisabled,
-    incrementDate,
-    decrementDate,
+    isDecrementDisabled,
+    decrementMonth,
+    incrementMonth,
+    incrementedMonth,
+    incrementedYear,
   } = props;
 
   return (
@@ -34,16 +19,16 @@ const Months = (props) => {
         <div className="calc__amount-left">
           <Arrow
             className="arrow-left"
-            disabled={isDisabled}
-            onClick={decrementDate}
+            disabled={isDecrementDisabled}
+            onClick={decrementMonth}
           ></Arrow>
         </div>
         <div className="calc__amount-input">
-          <span className="calc__amount-inputMonth">{MONTHS[currentMonth]}</span>
-          <span className="calc__amount-inputYear">{currentYear}</span>
+          <span className="calc__amount-inputMonth">{incrementedMonth}</span>
+          <span className="calc__amount-inputYear">{incrementedYear}</span>
         </div>
         <div className="calc__amount-right">
-          <Arrow className="arrow-right" onClick={incrementDate}></Arrow>
+          <Arrow className="arrow-right" onClick={incrementMonth}></Arrow>
         </div>
       </div>
     </div>
