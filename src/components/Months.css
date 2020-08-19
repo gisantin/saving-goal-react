@@ -1,0 +1,49 @@
+.calc__amount-input {
+  border: 1px solid #e1e8ed;
+  width: 135px;
+  padding: 9px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 60px;
+}
+
+.calc__amount-left {
+  background: #e1e8ed;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px 0px 0px 4px;
+  padding: 19px;
+  height: 60px;
+}
+
+.calc__amount-right {
+  background: #e1e8ed;
+  border: 1px solid #e1e8ed;
+  border-radius: 0 4px 4px 0;
+  padding: 19px;
+  height: 60px;
+}
+
+.arrow-left {
+  width: 9px;
+  height: 16px;
+}
+
+.arrow-right {
+  width: 9px;
+  height: 16px;
+  transform: rotate(180deg);
+}
+
+.calc__amount-inputMonth {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  color: #1c1e1f;
+}
+
+.calc__amount-inputYear {
+  font-size: 16px;
+  line-height: 20px;
+  color: #1c1e1f;
+}

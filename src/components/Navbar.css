@@ -1,0 +1,10 @@
+.navbar {
+  height: 6em;
+  background: #fff;
+  padding: 17px 37px;
+}
+
+.navbar__logo {
+  height: 38px;
+  width: 95px;
+}

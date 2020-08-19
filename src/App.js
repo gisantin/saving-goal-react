@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from "react";
 
 import './App.css';
-import Navbar from './components/Navbar';
-import Container from './components/Container';
-
+import Navbar from "./components/Navbar";
+import Container from "./components/Container";
 
 const App = () => {
   return (
@@ -11,8 +10,7 @@ const App = () => {
       <Navbar />
       <Container />
     </div>
-  )
+  );
 };
-
 
 export default App;

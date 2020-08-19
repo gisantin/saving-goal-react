@@ -1,0 +1,52 @@
+.calc__amount-money {
+  display: block;
+}
+
+.calc__amount-text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1c1e1f;
+  margin-bottom: 4px;
+}
+
+.calc__amount-boxes {
+  display: flex;
+  flex-direction: row;
+}
+
+.calc__amount-currency {
+  font-size: 1.8em;
+  color: #657786;
+  background: #f4f8fa;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px 0px 0px 4px;
+  padding: 16px 20px;
+}
+
+.calc__amount-dolar {
+  background: #ffffff;
+  border: 1px solid #e1e8ed;
+  padding: 16px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.166667px;
+  color: #1c1e1f;
+  border-radius: 0 4px 4px 0;
+  max-width: 176px;
+}
+
+.calc__amount-time {
+  background: #ffffff;
+  border: 1px solid #e1e8ed;
+  padding: 16px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.166667px;
+  color: #1c1e1f;
+  max-width: 136px;
+}
+
+

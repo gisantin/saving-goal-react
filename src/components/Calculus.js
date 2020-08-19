@@ -1,33 +1,29 @@
-import React, { useState } from 'react';
-import NumberFormat from 'react-number-format';
+import React from "react";
 
-import Months from './Months'
+import "./Calculus.css";
 
-const Calculus = (props) => {
-  const [amountMoney, setAmountMoney] = useState(1000);
-
-  const cleanIputHandler = () => setAmountMoney('');
-
+const Calculus = ({
+  formattedAmountMoney,
+  onCalculusChange,
+}) => {
   return (
     <div className="calc">
       <div className="calc__amount">
         <div className="calc__amount-money">
-          <h4 className="calc__amount-text">"Total amount"</h4>
+          <h4 className="calc__amount-text">Total amount</h4>
           <div className="calc__amount-boxes">
-            <button className="calc__amount-currency"
-              onClick={cleanIputHandler}>$</button>
-            <NumberFormat
+            <span className="calc__amount-currency">$</span>
+            <input
               className="calc__amount-dolar"
-              value={amountMoney}
-              thousandSeparator={true}
-              displayType={'number'}
+              onChange={onCalculusChange}
+              defaultValue={formattedAmountMoney}
+              value={formattedAmountMoney}
             />
           </div>
         </div>
-        <Months {...props} />
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
 export default Calculus;
