@@ -7,7 +7,6 @@ const Calculus = ({
   onCalculusChange,
 }) => {
   return (
-    <div className="calc">
       <div className="calc__amount">
         <div className="calc__amount-money">
           <h4 className="calc__amount-text">Total amount</h4>
@@ -22,7 +21,6 @@ const Calculus = ({
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -1,10 +1,18 @@
 .navbar {
   height: 6em;
   background: #fff;
-  padding: 17px 37px;
+  padding: 16px;
+  width: 100%;
+  display: flex;
 }
 
 .navbar__logo {
-  height: 38px;
-  width: 95px;
+  width: 60px;
+  align-self: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar__logo {
+    width: 80px;
+  }
 }

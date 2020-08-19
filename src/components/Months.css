@@ -1,11 +1,16 @@
 .calc__amount-input {
   border: 1px solid #e1e8ed;
-  width: 135px;
-  padding: 9px 30px;
+  width: 190px;
+  padding: 9px 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 60px;
+}
+
+@media screen and (min-width: 1024px) {
+  .calc__amount-input {
+    width: 140px;
+  }
 }
 
 .calc__amount-left {

@@ -56,7 +56,7 @@ const Container = () => {
 
   const calculateAmount = (months) => {
     const monthlyAmount = (amountMoney / months).toLocaleString("en-US", {
-      style: "currency",
+      style: "decimal",
       currency: "USD",
     });
     setMonthlyAmount(monthlyAmount);
