@@ -3,9 +3,7 @@ import Calculus from "./Calculus";
 import Display from "./Display";
 import Months from "./Months";
 import { MONTHS } from "../utils/constants";
-import addMonthsFromCurrentDate from '../utils/addMonthsFromCurrentDate';
-import formatCurrency from "../utils/formatCurrency";
-
+import addMonthsFromCurrentDate from "../utils/addMonthsFromCurrentDate";
 
 import { ReactComponent as House } from "../icons/insuranceAuto.svg";
 
@@ -22,8 +20,8 @@ const Container = () => {
   const incrementedYear = incrementedDate.getFullYear();
 
   const onCalculusChange = ({ target: { value } }) => {
-    // const intValue = parseInt(value.replace(/[\D]/g, ""));
-    setAmountMoney(value);
+    const parsedValue = value.split(",").join("");
+    setAmountMoney(parseFloat(parsedValue));
   };
 
   const incrementMonth = () => {
