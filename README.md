@@ -1,8 +1,8 @@
 ## Saving goal plan calculator
 
-Put the amount value you want to save at the "Total amount" input
-Choose the months quantity you need, using the left-fight arrows buttons
-See the monthly amount you will deposit per month
+Put the amount value you want to save at the "Total amount" input\
+Choose the months quantity you need, using the left-fight arrows buttons\
+See the monthly amount you will deposit per month\
 
 ## The Saving Goal Plan Simulation Screen
 
