@@ -10,7 +10,7 @@ See the monthly amount you will deposit per month
 
 ## Visit the app
 
-![Saving Goal Plan App](https://saving-goal-plan.netlify.app/)
+https://saving-goal-plan.netlify.app/
 
 ## To run the project
 
